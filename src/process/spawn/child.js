@@ -1,15 +1,11 @@
 const commander = require("commander");
-const util = require("util");
+const wait = require("../../util/wait");
 
 commander
   .version("1.0.1")
   .option("-n, number <n>", "总共次数", parseInt)
   .option("-t, time <n>", "间隔时间", parseInt)
   .parse(process.argv);
-
-async function wait(time) {
-  await util.promisify(setTimeout)(time);
-}
 
 async function run() {
   let n = commander.number;

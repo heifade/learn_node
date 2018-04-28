@@ -3,10 +3,10 @@ let path = require("path");
 
 let childFile = path.resolve(__dirname, "./child.js");
 
-let ls = child_process.exec(`node ${childFile} -n 10 -t 300`);
+let ls = child_process.exec(`node ${childFile} -n 10 -t 300`, {encoding: 'utf8'});
 
 ls.stdout.on("data", data => {
-  console.log("data", data.toString());
+  console.log("data", data);
 });
 ls.stderr.on("data", data => {
   console.log("err", data.toString());
