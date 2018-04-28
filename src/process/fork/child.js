@@ -11,5 +11,11 @@ process.on("message", msg => {
   }
 });
 
+process.on("disconnect", () => {
+  console.log("child disconnect");
+});
 
-console.log('aaa')
+process.on("exit", (code, signal) => {
+  console.log("child exit", code, signal);
+});
+

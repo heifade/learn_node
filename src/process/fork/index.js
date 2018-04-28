@@ -13,13 +13,9 @@ ls.on("message", data => {
   console.log("message", data);
 });
 
-ls.on("close", code => {
-  console.log("close", code);
+process.on("exit", (code, signal) => {
+  console.log("parent exit", code, signal);
 });
-
-// ls.stdout.on('data', (data) => {
-//   console.log(data.toString());
-// })
 
 async function run() {
   let n = 10;
@@ -39,6 +35,8 @@ async function run() {
   ls.send({
     type: "close"
   });
+
+  // ls.kill();
 }
 
 run();

@@ -11,12 +11,9 @@ async function run() {
   let n = commander.number;
   while (n > 0) {
     console.log("222");
-
     await wait(commander.time);
     n--;
   }
 }
 
 run();
-
-// process.exitCode = 0;
